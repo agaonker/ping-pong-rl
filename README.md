@@ -1,51 +1,58 @@
 # Pong Reinforcement Learning
 
-A Pong game environment for reinforcement learning using PyTorch and Pygame.
+A Pong game implementation with Reinforcement Learning using PyTorch. The AI agent learns to play Pong through Deep Q-Learning (DQN).
 
-## Setup
+![Pong Game Screenshot](docs/images/pong_game.png)
 
-1. Install `uv` (if not already installed):
+## Features
+
+- Deep Q-Learning (DQN) implementation
+- Prioritized Experience Replay
+- Smooth paddle movement with inertia
+- Hardware-accelerated rendering
+- Real-time score display
+- Training progress tracking
+
+## Current Score
+As shown in the screenshot, the AI Trainee has learned to play effectively:
+- Player: 40
+- AI Trainee: 173
+
+## Installation
+
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
+# Clone the repository
+git clone [your-repo-url]
+cd pong-rl
+
+# Install dependencies
+pip install -e .
 ```
 
-2. Create and activate a virtual environment:
-```bash
-uv venv
-source .venv/bin/activate  # On Unix/macOS
-# or
-.venv\Scripts\activate  # On Windows
-```
+## Training
 
-3. Install dependencies:
-```bash
-uv pip install -e .
-```
+To train the AI:
 
-## Project Structure
-
-- `pong_env.py`: The Pong game environment
-- `train_pong.py`: Training script using DQN
-- `pyproject.toml`: Project configuration and dependencies
-
-## Usage
-
-To train the agent:
 ```bash
 python train_pong.py
 ```
 
-## Features
+The model will be saved in the `models` directory.
 
-- Custom Pong environment with realistic physics
-- Deep Q-Network (DQN) implementation
-- Visual rendering using Pygame
-- Continuous state space with normalized values
-- Three actions: stay, up, down
+## Project Structure
 
-## Requirements
+- `pong_env.py`: Pong game environment
+- `train_pong.py`: Training script with DQN implementation
+- `pyproject.toml`: Project dependencies and configuration
 
-- Python >= 3.8
+## Dependencies
+
 - PyTorch
+- Pygame
 - NumPy
-- Pygame 
+- OpenCV (for video creation)
+- Pillow (for image processing)
+
+## License
+
+[Your chosen license] 
