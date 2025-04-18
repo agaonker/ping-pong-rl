@@ -23,8 +23,8 @@ As shown in the screenshot, the AI Trainee has learned to play effectively:
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
-cd pong-rl
+git clone https://github.com/agaonker/ping-pong-rl.git
+cd ping-pong-rl
 
 # Install dependencies
 pip install -e .
@@ -51,9 +51,6 @@ The model will be saved in the `models` directory.
 - PyTorch
 - Pygame
 - NumPy
-- OpenCV (for video creation)
-- Pillow (for image processing)
 
 ## License
-
-[Your chosen license] 
+MIT License
