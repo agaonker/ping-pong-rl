@@ -2,7 +2,8 @@
 
 A Pong game implementation with Reinforcement Learning using PyTorch. The AI agent learns to play Pong through Deep Q-Learning (DQN).
 
-![Pong Game Screenshot](docs/images/pong_game.png)
+![Screenshot 2025-04-17 at 9 44 58 PM](https://github.com/user-attachments/assets/5490216b-6f8d-4cf4-b350-d8566f5cc3c6)
+
 
 ## Features
 
