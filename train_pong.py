@@ -211,10 +211,15 @@ def train(model_path=None, load_model=False):
         agent = DQNAgent(state_size, action_size, 
                         model_path if load_model else None)
         
-        # Initialize pygame
+        # Initialize pygame with better performance settings
         pygame.init()
-        screen = pygame.display.set_mode((env.width, env.height))
         pygame.display.set_caption('Pong RL Training')
+        
+        # Enable hardware acceleration
+        pygame.display.set_mode((env.width, env.height), pygame.HWSURFACE | pygame.DOUBLEBUF)
+        screen = pygame.display.get_surface()
+        
+        # Create a clock for consistent frame rate
         clock = pygame.time.Clock()
         
         # Training parameters
@@ -226,6 +231,9 @@ def train(model_path=None, load_model=False):
         # Training statistics
         rewards_history = []
         epsilons_history = []
+        
+        # Target frame rate
+        target_fps = 60
         
         for episode in range(episodes):
             try:
@@ -243,7 +251,7 @@ def train(model_path=None, load_model=False):
                             return
                     
                     action = agent.act(state)
-                    next_state, reward, done = env.step(action)
+                    next_state, reward, done, last_scorer = env.step(action)
                     
                     agent.remember(state, action, reward, next_state, done)
                     agent.replay(batch_size)
@@ -251,9 +259,11 @@ def train(model_path=None, load_model=False):
                     state = next_state
                     total_reward += reward
                     
+                    # Render the game
                     env.render(screen)
-                    pygame.display.flip()
-                    clock.tick(60)
+                    
+                    # Control frame rate
+                    clock.tick(target_fps)
                 
                 if episode % target_update == 0:
                     agent.update_target_model()
