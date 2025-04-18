@@ -3,7 +3,7 @@ name = "pong-rl"
 version = "0.1.0"
 description = "A Pong game environment for reinforcement learning"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Ashish Gaonker", email = "ashish.gec@gmail.com"}
 ]
 dependencies = [
     "numpy>=1.24.0",
